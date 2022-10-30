@@ -44,14 +44,58 @@
         @media(min-width: 1050px) { /* laptop */
             * {
                 font-size: 18px;
+                background-color: #E0E0E0;
+            }
+            .container {
+                background-color: #FFFFFF;
+            }
+            form {
+                background-color: #FFFFFF;
             }
             .container{
-                padding-left: 350px;
-                padding-right: 350px;
+                border: 1px black solid;   
+                border-radius: 10px;
+                padding: 20px 350px 20px 350px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                text-align: center;
+            }
+            h3.header{
+                font-size: 25px;
+                background-color: #FFFFFF;
+            }
+            label {
+                background-color: #FFFFFF;
+            }
+            a {
+                background-color: #FFFFFF
+            }
+            a:hover {
+                color: #FF5C5C;
+            }
+            .box {
+                background-color: #FFFFFF;
+                margin: 25px 0px 25px 0px;
+                display: block;
+            }
+            .box .button-submit:hover{
+                background-color: #79C6FF;
+            }
+            .box .button-submit {
+                padding: 5px 15px 5px 15px;
+                border: none;
+                border-radius: 3px;
+                background-color: #28A4FF;
+            }
+            input {
+                background-color: #FFFFFF;
+                border: 1px black solid; 
+                border-radius: 2px;
+            }
+            hr {
+                border: 1px black solid; 
             }
         } 
     </style>
@@ -84,27 +128,29 @@
                         ?>
                     </div>
                 <?php } ?>
-                <div class="">
-                    <label class="">Username</label><br>
-                    <input type="text" class="" name="member_name">
+                <div class="box">
+                    <label>Username</label><br>
+                    <input type="text" class="box-input" name="member_name">
                 </div>
-                <div class="">
-                    <label class="">Email</label><br>
-                    <input type="email" class="" name="member_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <div class="box">
+                    <label>Email</label><br>
+                    <input type="email" class="box-input" name="member_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
-                <div class="">
-                    <label class="">tel</label><br>
-                    <input type="text" class="" name="member_tel">
+                <div class="box">
+                    <label>tel</label><br>
+                    <input type="text" class="box-input" name="member_tel">
                 </div>
-                <div class="">
-                    <label class="">Password</label><br>
-                    <input type="password" class="" name="password">
+                <div class="box">
+                    <label>Password</label><br>
+                    <input type="password" class="box-input" name="password">
                 </div>
-                <div class="">
-                    <label class="">Confirm Password</label><br>
-                    <input type="password" class="" name="c_password">
+                <div class="box">
+                    <label>Confirm Password</label><br>
+                    <input type="password" class="box-input" name="c_password">
                 </div>
-                <button type="submit" class="" name="signUp">Sign Up</button>
+                <div class="box">
+                    <button type="submit" class="button-submit" name="signUp">Sign Up</button>
+                </div>
             </form> 
         <hr>
         <a href="signIn.php">เข้าสู่ระบบ</a>
