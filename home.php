@@ -18,8 +18,11 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     * {
-        font-family: 'Prompt', sans-serif;
+        font-family: 'Prompt', sans-serif; 
     } 
+    body {
+        background-color: #E0E0E0;
+    }
     @media (max-width: 820px) { /* mobile */
         .header {
             background-color: #28A4FF;
@@ -50,19 +53,50 @@
             border-radius: 3px;
             color: #FFFFFF;
         }
-        .content {
-            width: 50px;
-            height: 50px;
-            background-color: green;
-            display: inline;
-            margin: 0;
-            padding: 0;
+        .button-logout a:hover {
+            background-color: #CD5C5C;
         }
-        .content .type {
-            background-color: yellow;
+        img {
+            max-width: 200px;
         }
-        .content .content-item {
-            background-color: green;
+        .items {
+            display: flex;
+            justify-content: center;
+        }
+        .items .box-container .box{
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0px 5px 10px #BEBEBE;
+            border: 2px solid #000000;
+            position: relative;
+            padding: 20px 25px 20px 20px;
+            max-width: 250px;
+            margin: 20px;
+            background-color: #FFFFFF;
+        }
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .items .box-container .box .add-to-cart {
+            border: none;
+            border-radius: 3px;
+            background-color: #28A4FF; 
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .items .box-container .box .add-to-cart:hover {
+            background-color: #87CEEB; 
+        }
+        .items .box-container .box input[type="number"]{
+            width: 100%;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            color: #000000;
+            padding: 5px 5px 5px 10px;
+            margin: 5px 0px;
         }
     } 
 </style>
@@ -84,21 +118,23 @@
         </div>
         <div class="items">
             <div class="box-container">
+
                 <?php
                     $items = $pdo->prepare("SELECT * FROM item");
-                    $row = $items->fetch(PDO::FETCH_ASSOC);
-
+                    $items->execute();
                     if($items->rowCount() > 0){
-                        
-                    
+                        while($row = $items->fetch(PDO::FETCH_ASSOC)){                   
                 ?>
-                    <form action="" method="post" class="box">
-                        <!-- <img src="image/"> -->
-                        
-                    </form>
+                            <form action="" method="post" class="box">
+                                <img src="image/<?php echo $row['item_image'];?>">
+                                <div class="name-item"><?php echo $row['item_name'];?></div>
+                                <div class="price-item"><?php echo $row['item_price'];?></div>
+                                <input type="number" min="1" name="item_quantity" value="1">
+                                <input type="submit" value="Add To Cart" name="add_to_cart" class="add-to-cart">
+                            </form>
                 <?php
-                    // };
-                };    
+                        };
+                    };
                 ?>
             </div>
         </div>
