@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     * {
@@ -37,13 +38,12 @@
     }
     @media(min-width: 1050px) { /* laptop */
         .header { 
-            margin: 0px;
+            margin: -10px;
             padding: 20px 50px 20px 0px;
-            font-size: 22px;
+            font-size: 20px;
             color: #FFFFFF;
             text-align: right;
             background-color: #2C73C9;
-            list-style-type: none;
         }  
         .button-logout a:link,a:visited {
             background-color: #FF5C5C;
@@ -52,9 +52,22 @@
             text-decoration: none;
             border-radius: 3px;
             color: #FFFFFF;
+            margin-top: 10px;
+
         }
         .button-logout a:hover {
             background-color: #CD5C5C;
+        }
+        .button-cart a.cart:link,a.cart:visited {
+            background-color: #32CD32;
+            padding: 5px 115px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 3px;
+            color: #FFFFFF;
+            margin-top: 5px;
         }
         img {
             max-width: 200px;
@@ -111,9 +124,12 @@
             }
         ?>
         <div class="header">
-            <label>account : </label>&nbsp;<?php echo $row['member_name'];?>
-            <div class="button-logout">
+            <label>account : </label><?php echo $row['member_name'];?>
+            <span class="button-logout">
                 <a href="signIn.php">Logout</a>
+            </span>
+            <div class="button-cart">
+                <a href="cart.php" class="cart"><i class="material-icons">shopping_basket</i>&nbsp;cart</a>
             </div>
         </div>
         <div class="items">
