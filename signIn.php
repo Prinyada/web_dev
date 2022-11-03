@@ -1,7 +1,8 @@
 <?php
     session_start();
-    include "db.php"
-?>
+    include "db.php";
+    setcookie("order","", time() + 3600 * 24);
+    ?>
 <html>
     <head>
         <meta charset="UTF-8">
