@@ -8,10 +8,11 @@
     
 
     if(isset($_POST["confrim"])){ 
-        $stmt = $pdo->prepare("UPDATE `member` SET member_name=? ,member_tel=?,member_email=? WHERE member_id=$mem_id");
+        $stmt = $pdo->prepare("UPDATE `member` SET member_name=? ,member_tel=?,member_province=?,member_email=? WHERE member_id=$mem_id");
         $stmt->bindParam(1,$_POST['mem_name']);
         $stmt->bindParam(2,$_POST['mem_tel']);
-        $stmt->bindParam(3,$_POST['mem_email']);
+        $stmt->bindParam(3,$_POST['mem_pro']);
+        $stmt->bindParam(4,$_POST['mem_email']);
 
 
         if($stmt->execute()){

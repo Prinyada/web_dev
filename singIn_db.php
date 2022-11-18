@@ -1,12 +1,11 @@
 <?php include "db.php"?>
 <?php
 
-    session_start();
-    
-    if(isset($_POST["signIn"])){ // ถ้ามีการกดปุ่ม signIn
-        $email = $_POST["member_email"];
-        $password = $_POST["password"];
+    session_start();        
 
+    if(isset($_POST['signIn'])){ // ถ้ามีการกดปุ่ม signIn
+        $email = $_POST['member_email'];
+        $password = $_POST['password'];
         if(empty($email)){
             $_SESSION['error'] = 'กรุณากรอกอีเมลล์';
             header('location: signIn.php');
@@ -28,8 +27,14 @@
                 if($check_data->rowCount() > 0){ // ข้อมูลที่loginมา มีรึป่าว -> มากกว่า 0 = มีข้อมูล
                     if($email == $row['member_email']){
                         if($password == $row['password']){
-                            $_SESSION['user_login'] = $row['member_id'];
-                            header('location: home.php');
+                            if($row['urole'] == 'admin'){
+                                $_SESSION['admin_login'] = $row['member_id'];
+                                header('location: admin.php');
+                            }
+                            else{
+                                $_SESSION['user_login'] = $row['member_id'];
+                                header('location: home.php?data=main');
+                            }     
                         }
                         else{
                             $_SESSION['error'] = 'รหัสผ่านผิด';

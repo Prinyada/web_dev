@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_login'])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+    <script src="getprovince.js"></script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -179,7 +179,7 @@ if (!isset($_SESSION['user_login'])) {
                                     <label>ชื่อ</label>
                                 </div>
                                 <div class="col-md-6 ">
-                                    <input type="text" class="box-input" name="mem_name" value="<?=$row["member_name"]?>" placeholder="<?php echo $row['member_name']; ?>">
+                                    <input type="text" class="box-input" name="mem_name" value="<?= $row["member_name"] ?>" placeholder="<?php echo $row['member_name']; ?>">
 
                                 </div>
                             </div>
@@ -188,7 +188,15 @@ if (!isset($_SESSION['user_login'])) {
                                     <label>เบอร์โทร</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="box-input" name="mem_tel"  value="<?=$row["member_tel"]?>"  placeholder="<?php echo $row['member_tel']; ?>">
+                                    <input type="text" class="box-input" name="mem_tel" value="<?= $row["member_tel"] ?>" placeholder="<?php echo $row['member_tel']; ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>จังหวัด</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="mem_pro" id="province"></select>
                                 </div>
                             </div>
                             <div class="row">
@@ -196,7 +204,7 @@ if (!isset($_SESSION['user_login'])) {
                                     <label>อีเมล</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="box-input" name="mem_email"  value="<?=$row["member_email"]?>"  placeholder="<?php echo $row['member_email']; ?>">
+                                    <input type="text" class="box-input" name="mem_email" value="<?= $row["member_email"] ?>" placeholder="<?php echo $row['member_email']; ?>">
                                 </div>
                             </div>
                             <div class="row">
@@ -209,12 +217,12 @@ if (!isset($_SESSION['user_login'])) {
                                     </span>
                                     <span class="button">
                                         <button type="submit" class="edit" style="text-decoration: none; " name="confrim">บันทึก</button>
-                                </span>
-                            </div>
+                                    </span>
+                                </div>
 
                         </form>
 
-                        
+
 
                 <?php
                     };

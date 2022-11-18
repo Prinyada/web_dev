@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script>
+        async function getDataFromAPI() {
+            let response = await fetch("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province.json")
+            let rawData = await response.text() // อ่านผลลัพธ์
+            let objectData = JSON.parse(rawData) // แปลผลลัพธ์เป็น object
+            let result = document.getElementById('result') // ดึง <ul> เพื่อใช้ในการเพิ่มแท็ก <li>
+
+            for (let i = 0; i < 77; i++) {
+                    let content = objectData[i].name_th // ดึงข้อมูลจาก object
+                    let li = document.createElement('li') // สร้างแท็ก <li>
+                    li.innerHTML = content // น าข้อมูลทจี่ ดัแล้วมาไว้ในแทก็ก <li>
+                    result.appendChild(li) // เพิ่มแท็ก <li> ใหม่
+
+            }
+        }
+        getDataFromAPI() // เรียกฟังก์ชัน
+    </script>
+</head>
+
+<body>
+    <h1>ชื่อโรงพยาบาลเอกชนในเขตกทม. ที่มีจำนวนเตียงน้อยกว่า 100 เตียง</h1>
+    <ul id="result"></ul>
+</body>
+
+</html>
