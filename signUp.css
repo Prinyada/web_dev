@@ -3,6 +3,10 @@
     font-family: 'Prompt', sans-serif;
 }
 
+.box > #province {
+    background-color:#FFFFFF;
+}
+
 @media (max-width: 820px) {
 
     /* mobile */
@@ -22,13 +26,8 @@
     .container {
         border: 1px black solid;
         border-radius: 10px;
-        padding: 20px 100px 20px 100px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        padding: 20px 50px 20px 50px;
         text-align: center;
-        margin-top: 20px;
     }
 
     h3.header {
@@ -104,13 +103,9 @@
     .container {
         border: 1px black solid;
         border-radius: 10px;
-        padding: 20px 200px 20px 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        padding: 20px 50px 20px 50px;
         text-align: center;
-        margin-top: 20px;
+        margin: 20px 60px 20px 60px;
     }
 
     h3.header {
@@ -175,37 +170,21 @@
         background-color: #E0E0E0;
     }
 
-    .container {
-        background-color: #FFFFFF;
-    }
-
-    form {
+    .container,form,label,a{
         background-color: #FFFFFF;
     }
 
     .container {
         border: 1px black solid;
         border-radius: 10px;
-        padding: 20px 350px 20px 350px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        padding: 20px 50px 20px 50px;
         text-align: center;
-        margin-top: 20px;
+        margin: 20px 300px 20 300px;
     }
 
     h3.header {
         font-size: 25px;
         background-color: #FFFFFF;
-    }
-
-    label {
-        background-color: #FFFFFF;
-    }
-
-    a {
-        background-color: #FFFFFF
     }
 
     a:hover {
