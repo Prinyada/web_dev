@@ -116,10 +116,6 @@ if (!isset($_SESSION['user_login'])) {
             color: #FFFFFF;
             margin-top: 5px;
         }
-
-
-
-
     }
 </style>
 
