@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_login'])) {
     <!-- Including jQuery is required. -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="scriptajax.js"></script>
-    
+
     <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -202,14 +202,10 @@ if (!isset($_SESSION['user_login'])) {
                 <?php }
                     }
                 } ?>
-
-
             </div>
         </div>
-
     </div>
+    <?php include 'footer.php';?>
 </body>
-
-
 
 </html>

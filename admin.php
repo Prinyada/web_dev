@@ -30,7 +30,7 @@ if (!isset($_SESSION['admin_login'])) {
     <!-- header -->
     <div class="header">
         <div id="container-left">
-            <img src="logo.png" style="width: 400px;">
+            <img src="logo.png">
         </div>
         <div id="container-right">
             <label>account : </label> <?php echo $row['member_name']; ?></a>
@@ -39,6 +39,7 @@ if (!isset($_SESSION['admin_login'])) {
             </span>
         </div>
     </div>
+    
     <div class="content">
         <div class="dropdown">
             <label for="">เดือน : </label>
@@ -91,6 +92,7 @@ if (!isset($_SESSION['admin_login'])) {
 
        </div>
     </div>
+    <?php include 'footer.php';?>
 </body>
 
 </html>

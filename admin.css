@@ -61,26 +61,73 @@ img {
 
     /* mobile */
     .header {
-        background-color: #28A4FF;
         margin: 0px;
+        padding: 20px 50px 130px 0px;
+        font-size: 20px;
+        color: #FFFFFF;
+        background-color: #2C73C9;
+        width: 100%;
+    }
+
+    .container-left img {
+        max-width: 150px;
+    }
+
+    #container-left {
+        float: left;
+        width: 70%;
+    }
+
+    #container-left img {
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+
+    #container-right {
+        text-align: right;
+        float: right;
+        width: 30%;
     }
 }
 
-@media (max-width: 1049.99px) {
+@media (min-width: 820px) and (max-width: 1024px) {
 
     /* tablet */
     .header {
-        background-color: #28A4FF;
         margin: 0px;
+        padding: 20px 50px 100px 0px;
+        font-size: 20px;
+        color: #FFFFFF;
+        background-color: #2C73C9;
+        width: 100%;
+    }
+
+    #container-left {
+        float: left;
+        width: 70%;
+    }
+
+    #container-left img {
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+
+    #container-right {
+        text-align: right;
+        float: right;
+        width: 30%;
     }
 }
 
-@media(min-width: 1050px) {
+@media (min-width: 1024px) {
 
     /* laptop */
-    .header {
+    body {
         margin: 0px;
-        padding: 20px 50px 100px 0px;
+    }
+    .header {
+        /* margin: 0px; */
+        padding: 20px 0px 100px 0px;
         font-size: 20px;
         color: #FFFFFF;
         background-color: #2C73C9;
@@ -114,48 +161,14 @@ img {
         margin-top: 10px;
 
     }
-
-    .button-logout a:hover {
-        background-color: #CD5C5C;
-    }
-
-    .button-cart a.cart:link,
-    a.cart:visited {
-        background-color: #32CD32;
-        padding: 5px 115px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        border-radius: 3px;
-        color: #FFFFFF;
-        margin-top: 5px;
-    }
-
-    /* navbar */
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-
-    li {
-        float: left;
-    }
-
-    li a {
+    .content {
         display: block;
-        color: white;
         text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+        font-size: 18px;
     }
 
-    /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color: #111;
+    .content .dropdown {
+        margin-top: 10px;
+        font-size: 20px;
     }
-
 }

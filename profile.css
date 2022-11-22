@@ -8,41 +8,29 @@ body {
     background-color: #E0E0E0;
 }
 
-img {
-    max-width: 200px;
+.profile-component {
+    background-color: white;
+    padding: 60px;
 }
 
-.items .box-container .box {
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0px 5px 10px #BEBEBE;
-    border: 2px solid #000000;
-    position: relative;
-    padding: 20px 25px 20px 20px;
-    max-width: 250px;
-    margin: 20px;
-    background-color: #FFFFFF;
+.nav-item .nav-link {
+    color: #2C73C9;
 }
 
-.items .box-container .box .add-to-cart {
+.row {
+    margin: 39px;
+}
+
+.col-md-6 p {
+    color: #2C73C9;
+}
+
+.button .edit {
     border: none;
-    border-radius: 3px;
-    background-color: #28A4FF;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.items .box-container .box .add-to-cart:hover {
-    background-color: #87CEEB;
-}
-
-.items .box-container .box input[type="number"] {
-    width: 100%;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    color: #000000;
-    padding: 5px 5px 5px 10px;
-    margin: 5px 0px;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: #6c757d;
+    background-color: #E0E0E0;
 }
 
 @media (max-width: 820px) {
@@ -57,10 +45,6 @@ img {
         width: 100%;
     }
 
-    .container-left img {
-        max-width: 150px;
-    }
-
     #container-left {
         float: left;
         width: 70%;
@@ -106,21 +90,8 @@ img {
         margin-top: 5px;
     }
 
-    .box-container {
-        display: block;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-    }
-
     /* navbar */
-    ul {
+    #main-bar {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -129,7 +100,7 @@ img {
         width: 100%;
     }
 
-    li a {
+    #mini-bar a {
         display: block;
         width: 100%;
         color: white;
@@ -139,21 +110,17 @@ img {
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
+    #mini-bar a:hover {
         background-color: #111;
     }
-
 }
 
 @media (min-width: 820px) and (max-width: 1024px) {
-    body {
-        display: block;
-    }
 
     /* tablet */
     .header {
         margin: 0px;
-        padding: 20px 50px 100px 0px;
+        padding: 20px 50px 130px 0px;
         font-size: 20px;
         color: #FFFFFF;
         background-color: #2C73C9;
@@ -205,35 +172,17 @@ img {
         margin-top: 5px;
     }
 
-    .cantainer {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .box-container {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-    }
-
-    .search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    /*--------------- navbar ---------------*/
-    ul {
+    /* ------------- navbar-------------- */
+    #main-bar {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background-color: #333;
+        width: 100%;
     }
 
-    li a {
+    #mini-bar a {
         display: block;
         width: 100%;
         color: white;
@@ -243,10 +192,9 @@ img {
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
+    #mini-bar a:hover {
         background-color: #111;
     }
-
 }
 
 @media (min-width: 1024px) {
@@ -306,21 +254,8 @@ img {
         margin-top: 5px;
     }
 
-    .box-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-    }
-
     /* navbar */
-    ul {
+    #main-bar {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -328,12 +263,12 @@ img {
         background-color: #333;
     }
 
-    li {
+    #mini-bar {
         float: left;
     }
 
-    li a {
-        display: flex;
+    #mini-bar a {
+        display: block;
         color: white;
         text-align: center;
         padding: 14px 16px;
@@ -341,8 +276,7 @@ img {
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
+    #mini-bar a:hover {
         background-color: #111;
     }
-
 }
