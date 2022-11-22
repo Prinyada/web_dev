@@ -1,186 +1,23 @@
-<?php include "db.php"?>
+<?php include "db.php" ?>
 <?php
 session_start();
+setcookie("month",0, time() + (86400 * 30)); 
 
-if (!isset($_SESSION['user_login'])) {
+if (!isset($_SESSION['admin_login'])) {
     $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ';
     header('location: signIn.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="admin.css" type="text/css">
 </head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-    * {
-        font-family: 'Prompt', sans-serif;
-    }
-
-    body {
-        background-color: #E0E0E0;
-    }
-
-    img {
-        max-width: 200px;
-    }
-
-    .items {
-        display: flex;
-        justify-content: center;
-    }
-
-    .items .box-container .box {
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 0px 5px 10px #BEBEBE;
-        border: 2px solid #000000;
-        position: relative;
-        padding: 20px 25px 20px 20px;
-        max-width: 250px;
-        margin: 20px;
-        background-color: #FFFFFF;
-    }
-
-    .box-container {
-        display: inline-flex;
-        /* flex-wrap: wrap; */
-        gap: 15px;
-        justify-content: center;
-    }
-
-    .items .box-container .box .add-to-cart {
-        border: none;
-        border-radius: 3px;
-        background-color: #28A4FF;
-        margin-top: 10px;
-        padding: 10px;
-    }
-
-    .items .box-container .box .add-to-cart:hover {
-        background-color: #87CEEB;
-    }
-
-    .items .box-container .box input[type="number"] {
-        width: 100%;
-        border: 2px solid #000000;
-        border-radius: 5px;
-        color: #000000;
-        padding: 5px 5px 5px 10px;
-        margin: 5px 0px;
-    }
-
-
-    @media (max-width: 820px) {
-
-        /* mobile */
-        .header {
-            background-color: #28A4FF;
-            margin: 0px;
-        }
-    }
-
-    @media (max-width: 1049.99px) {
-
-        /* tablet */
-        .header {
-            background-color: #28A4FF;
-            margin: 0px;
-        }
-    }
-
-    @media(min-width: 1050px) {
-
-        /* laptop */
-        .header {
-            margin: 0px;
-            padding: 20px 50px 100px 0px;
-            font-size: 20px;
-            color: #FFFFFF;
-            background-color: #2C73C9;
-            width: 100%;
-        }
-
-        #container-left {
-            float: left;
-            width: 70%;
-        }
-
-        #container-left img {
-            margin-left: 20px;
-            margin-top: 15px;
-        }
-
-        #container-right {
-            text-align: right;
-            float: right;
-            width: 30%;
-        }
-
-        .button-logout a:link,
-        a:visited {
-            background-color: #FF5C5C;
-            padding: 5px 10px;
-            display: inline-block;
-            text-decoration: none;
-            border-radius: 3px;
-            color: #FFFFFF;
-            margin-top: 10px;
-
-        }
-
-        .button-logout a:hover {
-            background-color: #CD5C5C;
-        }
-
-        .button-cart a.cart:link,
-        a.cart:visited {
-            background-color: #32CD32;
-            padding: 5px 115px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            border-radius: 3px;
-            color: #FFFFFF;
-            margin-top: 5px;
-        }
-
-        /* navbar */
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        /* Change the link color to #111 (black) on hover */
-        li a:hover {
-            background-color: #111;
-        }
-
-    }
-</style>
 <body>
     <?php
     if (isset($_SESSION['admin_login'])) {
@@ -201,10 +38,59 @@ if (!isset($_SESSION['user_login'])) {
                 <a href="signIn.php">Logout</a>
             </span>
         </div>
-    </div> 
+    </div>
     <div class="content">
+        <div class="dropdown">
+            <label for="">เดือน : </label>
+            <select id="month-list" onchange=getmonth()>
+                <option value="0">ทั้งหมด</option>
+                <option value="1">มกราคม</option>
+                <option value="2">กุมพาพันธ์</option>
+                <option value="3">มีนาคม</option>
+                <option value="4">เมษายน</option>
+                <option value="5">พฤษภาคม</option>
+                <option value="6">มิถุนายน</option>
+                <option value="7">กรกฎาคม</option>
+                <option value="8">สิงหาคม</option>
+                <option value="9">กันยายน</option>
+                <option value="10">ตุลาคม</option>
+                <option value="11">พฤษจิกายน</option>
+                <option value="12">ธันวาคม</option>
+            </select>
+        </div>
 
+        <script>
+            var httpRequest;
+
+            function send() {
+                httpRequest = new XMLHttpRequest();
+                httpRequest.onreadystatechange = showResult;
+                var url= "adminshowdata.php";
+                httpRequest.open("GET", url);
+                httpRequest.send();
+            }
+
+            function showResult() {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    document.getElementById("data_table").innerHTML = httpRequest.responseText;
+                }
+            }
+        
+            function getmonth() {
+                var get_month = document.getElementById("month-list")
+                var value = get_month.value
+                var text = get_month.options[ get_month.selectedIndex].text;
+                var month = document.cookie = "month=" + value //create cookie
+                console.log()
+                send()
+            }
+            getmonth()
+        </script>
+        
+       <div id="data_table">
+
+       </div>
     </div>
 </body>
-</html>
 
+</html>
