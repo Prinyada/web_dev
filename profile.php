@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_login'])) {
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="profile.css" type="text/css">
+    <link rel="stylesheet" href="./style/profile.css" type="text/css">
 
 </head>
 
@@ -62,8 +62,8 @@ if (!isset($_SESSION['user_login'])) {
         </li>
         <li id="mini-bar"><a href="./profile.php">โปรไฟล์</a></li>
     </ul>
-    <div class="profile">
-        <section>
+    <section>
+        <div class="profile">
             <div class="profile-component">
                 <?php
                 $mem = $pdo->prepare("SELECT * FROM member WHERE member_id = $member_id");
@@ -139,14 +139,15 @@ if (!isset($_SESSION['user_login'])) {
                             <a class="edit" style="text-decoration: none; " href="./editprofile.php">แก้ไขข้อมูล</a>
                         </span>
                     </div>
-                </div>    
+                </div>
                 <?php
                     };
                 };
                 ?>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
     <?php include 'footer.php';?>
 </body>
+
 </html>

@@ -59,7 +59,7 @@
                     $stmt->bindParam(5, $_POST["password"]);
                     $stmt->bindParam(6, $urole);
                     $stmt->execute();
-                    $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว <a href='signIn.php' class='alert-link'>เข้าสู่ระบบ</a>";
+                    $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว <a href='signIn.php' style='background-color: #7DE85D;'>เข้าสู่ระบบ</a>";
                     header('location: signUp.php');
                 }
                 else{

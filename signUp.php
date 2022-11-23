@@ -10,7 +10,7 @@ include "db.php"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <script src="getprovince.js"></script>
-    <link rel="stylesheet" href="signUp.css" type="text/css">
+    <link rel="stylesheet" href="./style/signUp.css" type="text/css">
 </head>
 <body>
     <div id="container-logo">
@@ -21,15 +21,15 @@ include "db.php"
         <hr>
         <form action="signUp_db.php" method="post">
             <?php if (isset($_SESSION['error'])) { ?>
-            <div class="alert alert-danger" role="alert">
+            <div style="background-color: #FF5C5C;">
                 <?php
                     echo $_SESSION['error'];
                     unset($_SESSION['error']); // ไม่ให้ session ค้าง
-                    ?>
+                    ?> 
             </div>
             <?php } ?>
             <?php if (isset($_SESSION['success'])) { ?>
-            <div class="alert alert-success" role="alert">
+            <div style="background-color: #7DE85D;">
                 <?php
                     echo $_SESSION['success'];
                     unset($_SESSION['success']); // ไม่ให้ session ค้าง
@@ -37,7 +37,7 @@ include "db.php"
             </div>
             <?php } ?>
             <?php if (isset($_SESSION['warning'])) { ?>
-            <div class="alert alert-waring" role="alert">
+            <div class="content" style="background-color: #FF5C5C;">
                 <?php
                     echo $_SESSION['warning'];
                     unset($_SESSION['warning']); // ไม่ให้ session ค้าง
@@ -55,7 +55,8 @@ include "db.php"
             </div>
             <div class="box">
                 <label>tel</label><br>
-                <input type="text" class="box-input" name="member_tel">
+                <input type="text" class="box-input" name="member_tel"
+                pattern="^0[0-9]{9}">
             </div>
             <div class="box">
                 <label>จังหวัด</label><br>
